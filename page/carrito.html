@@ -1,74 +1,156 @@
 <!DOCTYPE html>
-<html lang="es-BO">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito - Happy Smile</title>
+    <title>Carrito de Compras - 2X Delicias</title>
+    <meta name="description" content="Revisa y gestiona los productos en tu carrito de compras.">
     <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/cart.css">
-    <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header class="header">
         <div class="container">
-            <div class="header-content">
-                <a href="../index.html" class="logo">
-                    <div class="logo-icon">😊</div>
-                    <h1>Happy Smile</h1>
-                </a>
-                <nav>
-                    <a href="../index.html">INICIO</a>
-                    <a href="productos/galletas.html">PRODUCTOS</a>
-                    <a href="carrito.html" class="active">CARRITO</a>
-                    <a href="contacto.html">CONTACTO</a>
-                </nav>
+            <div class="logo">
+                <h1>2X Delicias</h1>
             </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="products/pasteles.html">Pasteles</a></li>
+                    <li><a href="products/donas.html">Donas</a></li>
+                    <li><a href="products/galletas.html">Galletas</a></li>
+                    <li><a href="products/bebidas.html">Bebidas</a></li>
+                    <li>
+                        <a href="carrito.html" class="active">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-badge" style="display: flex;">2</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
         </div>
     </header>
 
-    <section class="cart-section">
-        <div class="container">
-            <h1>TU CARRITO</h1>
+    <main class="container productos-page">
+        <h2>Tu Carrito de Compras</h2>
+        
+        <div class="carrito-container">
+            <table class="carrito-table">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Total</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <strong>Pastel de Chocolate</strong>
+                            <br>
+                            <small>Delicioso pastel de chocolate artesanal</small>
+                        </td>
+                        <td>$15.99</td>
+                        <td>
+                            <input type="number" value="1" min="1" class="cantidad-input">
+                        </td>
+                        <td>$15.99</td>
+                        <td>
+                            <button class="btn-remove">
+                                <i class="fas fa-trash"></i> Eliminar
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Donas Glaseadas</strong>
+                            <br>
+                            <small>Pack de 6 donas glaseadas frescas</small>
+                        </td>
+                        <td>$4.99</td>
+                        <td>
+                            <input type="number" value="2" min="1" class="cantidad-input">
+                        </td>
+                        <td>$9.98</td>
+                        <td>
+                            <button class="btn-remove">
+                                <i class="fas fa-trash"></i> Eliminar
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Chocolate Caliente</strong>
+                            <br>
+                            <small>Chocolate caliente cremoso</small>
+                        </td>
+                        <td>$3.99</td>
+                        <td>
+                            <input type="number" value="1" min="1" class="cantidad-input">
+                        </td>
+                        <td>$3.99</td>
+                        <td>
+                            <button class="btn-remove">
+                                <i class="fas fa-trash"></i> Eliminar
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
             
-            <div class="cart-container">
-                <div class="cart-items" id="cartItems">
-                    <!-- Items se cargan con JS -->
+            <div class="carrito-resumen">
+                <h3>Resumen del Pedido</h3>
+                <div class="resumen-item">
+                    <span>Subtotal:</span>
+                    <span>$29.96</span>
+                </div>
+                <div class="resumen-item">
+                    <span>Envío:</span>
+                    <span>$3.00</span>
+                </div>
+                <div class="resumen-item">
+                    <span>Descuento:</span>
+                    <span>$0.00</span>
+                </div>
+                <div class="resumen-item total">
+                    <span>Total:</span>
+                    <span>$32.96</span>
                 </div>
                 
-                <div class="cart-summary">
-                    <h3>RESUMEN</h3>
-                    <div class="summary-details">
-                        <div class="summary-row">
-                            <span>Subtotal:</span>
-                            <span id="cartSubtotal">Bs. 0.00</span>
-                        </div>
-                        <div class="summary-row">
-                            <span>Envío:</span>
-                            <span id="cartShipping">Bs. 0.00</span>
-                        </div>
-                        <div class="summary-row total">
-                            <span>Total:</span>
-                            <span id="cartTotal">Bs. 0.00</span>
-                        </div>
-                    </div>
-                    
-                    <div id="freeShippingMsg" class="free-shipping-msg">
-                        <i class="fas fa-truck"></i> Añade Bs. 100 más para envío gratis
-                    </div>
-                    
-                    <button id="checkoutBtn" class="checkout-btn" disabled>
-                        <i class="fas fa-lock"></i> PROCEDER AL PAGO
-                    </button>
-                    
-                    <a href="productos/galletas.html" class="continue-shopping">
-                        <i class="fas fa-arrow-left"></i> Seguir comprando
-                    </a>
+                <p style="text-align: center; margin: 20px 0; color: #666;">
+                    <i class="fas fa-truck"></i> Envío en 30-45 minutos
+                </p>
+                
+                <a href="checkout.html" class="btn" style="width: 100%; margin-top: 10px; padding: 15px;">
+                    Proceder al Pago <i class="fas fa-arrow-right"></i>
+                </a>
+                
+                <a href="../index.html" class="btn-secondary" style="width: 100%; margin-top: 15px; padding: 15px;">
+                    <i class="fas fa-shopping-bag"></i> Seguir Comprando
+                </a>
+                
+                <div style="margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 5px;">
+                    <p style="margin: 0; color: #666; font-size: 14px;">
+                        <i class="fas fa-shield-alt"></i> Compra 100% segura
+                    </p>
                 </div>
             </div>
         </div>
-    </section>
+    </main>
 
-    <script src="../js/cart.js"></script>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 2X Delicias. Todos los derechos reservados.</p>
+            <p>contacto@2xdelicias.com | Tel: (123) 456-7890</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
 </body>
 </html>

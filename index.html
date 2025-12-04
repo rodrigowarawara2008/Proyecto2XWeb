@@ -1,165 +1,83 @@
 <!DOCTYPE html>
-<html lang="es-BO">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Smile - Repostería Feliz Bolivia</title>
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- CSS Files -->
+    <title>2X Delicias - Postres Artesanales</title>
+    <meta name="description" content="Los mejores pasteles, donas, galletas y bebidas artesanales. Frescos y deliciosos, hechos con amor.">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/products.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    
-    <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>😊</text></svg>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
     <!-- Header -->
     <header class="header">
         <div class="container">
-            <div class="header-content">
-                <!-- Logo y Nombre -->
-                <div class="logo">
-                    <div class="logo-icon">😊</div>
-                    <div class="logo-text">
-                        <h1>Happy Smile</h1>
-                        <p class="tagline">Repostería con Alegría</p>
-                    </div>
-                </div>
-
-                <!-- Navegación Principal -->
-                <nav class="main-nav">
-                    <ul class="nav-list">
-                        <li><a href="index.html" class="nav-link active"><i class="fas fa-home"></i> INICIO</a></li>
-                        <li><a href="pages/products/galletas.html" class="nav-link"><i class="fas fa-cookie-bite"></i> GALLETAS</a></li>
-                        <li><a href="pages/products/donas.html" class="nav-link"><i class="fas fa-donate"></i> DONAS</a></li>
-                        <li><a href="pages/products/pasteles.html" class="nav-link"><i class="fas fa-birthday-cake"></i> PASTELES</a></li>
-                        <li><a href="pages/products/bebidas.html" class="nav-link"><i class="fas fa-coffee"></i> BEBIDAS</a></li>
-                        <li><a href="pages/contacto.html" class="nav-link"><i class="fas fa-envelope"></i> CONTACTO</a></li>
-                    </ul>
-                </nav>
-
-                <!-- Carrito y Acciones -->
-                <div class="header-actions">
-                    <a href="pages/carrito.html" class="cart-button">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class="cart-count">0</span>
-                    </a>
-                    <button class="order-button">
-                        <i class="fas fa-bolt"></i>
-                        Ordenar Ya
-                    </button>
-                </div>
+            <div class="logo">
+                <h1>2X Delicias</h1>
             </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="active">Inicio</a></li>
+                    <li><a href="page/products/pasteles.html">Pasteles</a></li>
+                    <li><a href="page/products/donas.html">Donas</a></li>
+                    <li><a href="page/products/galletas.html">Galletas</a></li>
+                    <li><a href="page/products/bebidas.html">Bebidas</a></li>
+                    <li>
+                        <a href="page/carrito.html">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-badge" style="display: none;">0</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
         </div>
     </header>
 
-    <!-- Hero Banner -->
-    <section class="hero">
+    <!-- Banner Principal -->
+    <section class="banner">
         <div class="container">
-            <div class="hero-content">
-                <h2 class="hero-title">Dulces Sonrisas en Cada Bocado</h2>
-                <p class="hero-subtitle">Productos artesanales hechos con amor y los mejores ingredientes de Bolivia</p>
-                <div class="hero-buttons">
-                    <a href="#productos" class="btn btn-primary">
-                        <i class="fas fa-utensils"></i> Ver Productos
-                    </a>
-                    <a href="pages/contacto.html" class="btn btn-secondary">
-                        <i class="fas fa-truck"></i> Delivery
-                    </a>
-                </div>
-            </div>
+            <h2>Dulces Momentos, Grandes Sonrisas</h2>
+            <p>Descubre nuestros postres artesanales, elaborados con los mejores ingredientes y mucho amor.</p>
+            <a href="page/products/pasteles.html" class="btn">Explorar Productos</a>
         </div>
     </section>
 
-    <!-- Sección de Productos -->
-    <section id="productos" class="products-section">
+    <!-- Productos Destacados -->
+    <section class="destacados">
         <div class="container">
-            <h2 class="section-title">Nuestros Productos</h2>
-            <p class="section-subtitle">Elige tu categoría favorita</p>
-
-            <div class="categories-grid">
-                <!-- Galletas -->
-                <a href="pages/products/galletas.html" class="category-card">
-                    <div class="category-image">
-                        <i class="fas fa-cookie-bite"></i>
-                    </div>
-                    <div class="category-content">
-                        <h3>GALLETAS</h3>
-                        <p>Variedad de galletas artesanales</p>
-                        <span class="category-link">Ver Catálogo →</span>
-                    </div>
-                </a>
-
-                <!-- Donas -->
-                <a href="pages/products/donas.html" class="category-card">
-                    <div class="category-image">
-                        <i class="fas fa-donate"></i>
-                    </div>
-                    <div class="category-content">
-                        <h3>DONAS</h3>
-                        <p>Donas esponjosas y glaseadas</p>
-                        <span class="category-link">Ver Catálogo →</span>
-                    </div>
-                </a>
-
-                <!-- Pasteles -->
-                <a href="pages/products/pasteles.html" class="category-card">
-                    <div class="category-image">
-                        <i class="fas fa-birthday-cake"></i>
-                    </div>
-                    <div class="category-content">
-                        <h3>PASTELES</h3>
-                        <p>Pasteles para ocasiones especiales</p>
-                        <span class="category-link">Ver Catálogo →</span>
-                    </div>
-                </a>
-
-                <!-- Bebidas -->
-                <a href="pages/products/bebidas.html" class="category-card">
-                    <div class="category-image">
-                        <i class="fas fa-coffee"></i>
-                    </div>
-                    <div class="category-content">
-                        <h3>BEBIDAS</h3>
-                        <p>Bebidas frías y calientes</p>
-                        <span class="category-link">Ver Catálogo →</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Información del Negocio -->
-    <section class="business-info">
-        <div class="container">
-            <div class="info-grid">
-                <div class="info-item">
-                    <i class="fas fa-shipping-fast"></i>
-                    <h4>Delivery Rápido</h4>
-                    <p>Entregamos en 30-45 minutos</p>
+            <h2>Productos Destacados</h2>
+            <div class="productos-grid">
+                <div class="producto">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Pastel de Chocolate" loading="lazy">
+                    <h3>Pastel de Chocolate</h3>
+                    <p>$15.99</p>
+                    <button class="btn-add">Añadir al Carrito</button>
                 </div>
-                <div class="info-item">
-                    <i class="fas fa-bolt"></i>
-                    <h4>Pedidos Express</h4>
-                    <p>Preparamos tu orden en 15 minutos</p>
+                
+                <div class="producto">
+                    <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Donas Glaseadas" loading="lazy">
+                    <h3>Donas Glaseadas</h3>
+                    <p>$4.99</p>
+                    <button class="btn-add">Añadir al Carrito</button>
                 </div>
-                <div class="info-item">
-                    <i class="fas fa-shield-alt"></i>
-                    <h4>Pago Seguro</h4>
-                    <p>Múltiples métodos de pago</p>
+                
+                <div class="producto">
+                    <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Galletas de Chips" loading="lazy">
+                    <h3>Galletas de Chips</h3>
+                    <p>$8.99</p>
+                    <button class="btn-add">Añadir al Carrito</button>
                 </div>
-                <div class="info-item">
-                    <i class="fas fa-heart"></i>
-                    <h4>Hecho con Amor</h4>
-                    <p>100% productos artesanales</p>
+                
+                <div class="producto">
+                    <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Chocolate Caliente" loading="lazy">
+                    <h3>Chocolate Caliente</h3>
+                    <p>$3.99</p>
+                    <button class="btn-add">Añadir al Carrito</button>
                 </div>
             </div>
         </div>
@@ -168,71 +86,17 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <!-- Información de la Empresa -->
-                <div class="footer-section">
-                    <div class="logo">
-                        <div class="logo-icon">😊</div>
-                        <div class="logo-text">
-                            <h3>Happy Smile</h3>
-                            <p>Repostería con Alegría</p>
-                        </div>
-                    </div>
-                    <p class="footer-description">
-                        Ofrecemos los mejores productos de repostería artesanal en Bolivia. 
-                        Hechos con ingredientes frescos y mucho amor.
-                    </p>
-                </div>
-
-                <!-- Contacto -->
-                <div class="footer-section">
-                    <h4>Contacto</h4>
-                    <div class="contact-info">
-                        <p><i class="fas fa-map-marker-alt"></i> Av. Principal #123, La Paz, Bolivia</p>
-                        <p><i class="fas fa-phone"></i> +591 777 888 999</p>
-                        <p><i class="fas fa-envelope"></i> pedidos@happysmile.bo</p>
-                        <p><i class="fas fa-clock"></i> Lunes a Domingo: 8:00 - 20:00</p>
-                    </div>
-                </div>
-
-                <!-- Redes Sociales -->
-                <div class="footer-section">
-                    <h4>Síguenos</h4>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-facebook"></i> Facebook</a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i> Instagram</a>
-                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                        <a href="#" class="social-link"><i class="fab fa-tiktok"></i> TikTok</a>
-                    </div>
-                </div>
-
-                <!-- Métodos de Pago -->
-                <div class="footer-section">
-                    <h4>Métodos de Pago</h4>
-                    <div class="payment-methods">
-                        <i class="fab fa-cc-visa" title="Visa"></i>
-                        <i class="fab fa-cc-mastercard" title="Mastercard"></i>
-                        <i class="fas fa-money-bill-wave" title="Efectivo"></i>
-                        <i class="fas fa-qrcode" title="QR Bolivia"></i>
-                        <i class="fas fa-university" title="Transferencia"></i>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Copyright -->
-            <div class="footer-bottom">
-                <p>&copy; 2024 Happy Smile. Todos los derechos reservados.</p>
-                <div class="footer-links">
-                    <a href="#">Términos y Condiciones</a>
-                    <a href="#">Política de Privacidad</a>
-                    <a href="#">Política de Delivery</a>
-                </div>
+            <p>&copy; 2024 2X Delicias. Todos los derechos reservados.</p>
+            <p>contacto@2xdelicias.com | Tel: (123) 456-7890</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
     <script src="js/main.js"></script>
-    <script src="js/cart.js"></script>
 </body>
 </html>

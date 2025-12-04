@@ -1,71 +1,126 @@
 <!DOCTYPE html>
-<html lang="es-BO">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto - Happy Smile</title>
+    <title>Contacto - 2X Delicias</title>
+    <meta name="description" content="Contáctanos para pedidos especiales, consultas o sugerencias.">
     <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header class="header">
         <div class="container">
-            <div class="header-content">
-                <a href="../index.html" class="logo">
-                    <div class="logo-icon">😊</div>
-                    <h1>Happy Smile</h1>
-                </a>
-                <nav>
-                    <a href="../index.html">INICIO</a>
-                    <a href="productos/galletas.html">PRODUCTOS</a>
-                    <a href="contacto.html" class="active">CONTACTO</a>
-                </nav>
+            <div class="logo">
+                <h1>2X Delicias</h1>
             </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="products/pasteles.html">Pasteles</a></li>
+                    <li><a href="products/donas.html">Donas</a></li>
+                    <li><a href="products/galletas.html">Galletas</a></li>
+                    <li><a href="products/bebidas.html">Bebidas</a></li>
+                    <li>
+                        <a href="carrito.html">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-badge" style="display: none;">0</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
         </div>
     </header>
 
-    <section class="contact-section">
-        <div class="container">
-            <h1>CONTACTO</h1>
-            
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3><i class="fas fa-store"></i> Nuestra Tienda</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Av. Principal #123, La Paz, Bolivia</p>
-                    
-                    <h3><i class="fas fa-phone"></i> Teléfonos</h3>
-                    <p>Pedidos: +591 777 888 999</p>
-                    <p>WhatsApp: +591 777 888 999</p>
-                    
-                    <h3><i class="fas fa-envelope"></i> Email</h3>
-                    <p>pedidos@happysmile.bo</p>
-                    
-                    <h3><i class="fas fa-clock"></i> Horarios</h3>
-                    <p>Lunes a Domingo: 8:00 - 20:00</p>
-                </div>
+    <main class="container productos-page">
+        <h2>Contacto</h2>
+        
+        <div class="contacto-container">
+            <div class="contacto-info">
+                <h3>Información de Contacto</h3>
+                <p><i class="fas fa-map-marker-alt"></i> <strong>Dirección:</strong> Av. Principal #123, Ciudad, País</p>
+                <p><i class="fas fa-phone"></i> <strong>Teléfono:</strong> (123) 456-7890</p>
+                <p><i class="fas fa-envelope"></i> <strong>Email:</strong> contacto@2xdelicias.com</p>
+                <p><i class="fas fa-clock"></i> <strong>Horario:</strong> Lunes a Domingo: 8:00 AM - 10:00 PM</p>
                 
-                <div class="contact-form">
-                    <h3>Envíanos un mensaje</h3>
-                    <form>
-                        <input type="text" placeholder="Tu nombre" required>
-                        <input type="email" placeholder="Tu email" required>
-                        <input type="tel" placeholder="Tu teléfono">
-                        <textarea placeholder="Tu mensaje" rows="5" required></textarea>
-                        <button type="submit">
-                            <i class="fas fa-paper-plane"></i> ENVIAR MENSAJE
-                        </button>
-                    </form>
+                <h3 style="margin-top: 40px;">¿Por qué elegirnos?</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: #27ae60;"></i> Productos 100% artesanales</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: #27ae60;"></i> Ingredientes frescos y naturales</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: #27ae60;"></i> Envío rápido en 30-45 minutos</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: #27ae60;"></i> Atención personalizada</li>
+                </ul>
+                
+                <h3 style="margin-top: 40px;">Síguenos</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            
+            <div class="contacto-form">
+                <h3>Envíanos un Mensaje</h3>
+                <p style="color: #666; margin-bottom: 20px;">
+                    ¿Tienes alguna pregunta, sugerencia o pedido especial? Escríbenos y te responderemos pronto.
+                </p>
+                
+                <form id="form-contacto">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <input type="text" placeholder="Nombre" required>
+                        <input type="text" placeholder="Apellido">
+                    </div>
+                    
+                    <input type="email" placeholder="Email" required>
+                    <input type="tel" placeholder="Teléfono">
+                    
+                    <select style="width: 100%; padding: 15px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px;">
+                        <option value="">Selecciona un motivo</option>
+                        <option value="consulta">Consulta general</option>
+                        <option value="pedido">Pedido especial</option>
+                        <option value="sugerencia">Sugerencia</option>
+                        <option value="problema">Reportar problema</option>
+                        <option value="trabajo">Trabaja con nosotros</option>
+                    </select>
+                    
+                    <textarea placeholder="Tu mensaje" rows="6" required></textarea>
+                    
+                    <div style="margin: 20px 0; padding: 15px; background: #f8f9fa; border-radius: 5px;">
+                        <label>
+                            <input type="checkbox" required>
+                            Acepto la <a href="#" style="color: #3498db;">política de privacidad</a>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn" style="width: 100%;">
+                        <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                    </button>
+                </form>
+                
+                <div style="margin-top: 30px; padding: 20px; background: #e3f2fd; border-radius: 5px; border-left: 4px solid #2196f3;">
+                    <h4 style="margin: 0 0 10px 0; color: #2196f3;">
+                        <i class="fas fa-lightbulb"></i> Pedidos Especiales
+                    </h4>
+                    <p style="margin: 0; color: #666; font-size: 14px;">
+                        ¿Necesitas un pastel para una ocasión especial? Contáctanos con 48 horas de anticipación para pedidos personalizados.
+                    </p>
                 </div>
             </div>
         </div>
-    </section>
+    </main>
 
     <footer class="footer">
         <div class="container">
-            <p>Happy Smile - Repostería con Alegría</p>
-            <p>La Paz, Bolivia &copy; 2024</p>
+            <p>&copy; 2024 2X Delicias. Todos los derechos reservados.</p>
+            <p>contacto@2xdelicias.com | Tel: (123) 456-7890</p>
         </div>
     </footer>
+
+    <script src="../js/main.js"></script>
 </body>
 </html>

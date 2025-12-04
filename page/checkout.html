@@ -1,110 +1,164 @@
 <!DOCTYPE html>
-<html lang="es-BO">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout - Happy Smile</title>
+    <title>Finalizar Compra - 2X Delicias</title>
+    <meta name="description" content="Completa tu información para finalizar la compra.">
     <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/checkout.css">
-    <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header class="header">
         <div class="container">
-            <div class="header-content">
-                <a href="../index.html" class="logo">
-                    <div class="logo-icon">😊</div>
-                    <h1>Happy Smile</h1>
-                </a>
-                <nav>
-                    <a href="../index.html">INICIO</a>
-                    <a href="carrito.html">VOLVER AL CARRITO</a>
-                </nav>
+            <div class="logo">
+                <h1>2X Delicias</h1>
             </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="products/pasteles.html">Pasteles</a></li>
+                    <li><a href="products/donas.html">Donas</a></li>
+                    <li><a href="products/galletas.html">Galletas</a></li>
+                    <li><a href="products/bebidas.html">Bebidas</a></li>
+                    <li>
+                        <a href="carrito.html">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-badge" style="display: flex;">3</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
         </div>
     </header>
 
-    <section class="checkout-section">
-        <div class="container">
-            <h1>FINALIZAR COMPRA</h1>
-            
-            <div class="checkout-container">
-                <form id="checkoutForm" class="checkout-form">
-                    <h3>Información de Entrega</h3>
-                    
-                    <div class="form-group">
-                        <label>Nombre completo *</label>
-                        <input type="text" id="name" required>
+    <main class="container productos-page">
+        <h2>Finalizar Compra</h2>
+        
+        <div class="checkout-container">
+            <div class="checkout-form">
+                <h3>Información de Envío</h3>
+                <form id="checkout-form">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <input type="text" placeholder="Nombre" required>
+                        <input type="text" placeholder="Apellido" required>
                     </div>
                     
-                    <div class="form-group">
-                        <label>Teléfono *</label>
-                        <input type="tel" id="phone" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="tel" placeholder="Teléfono" required>
+                    <input type="text" placeholder="Dirección" required>
+                    
+                    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 15px;">
+                        <input type="text" placeholder="Ciudad" required>
+                        <input type="text" placeholder="Código Postal" required>
                     </div>
                     
-                    <div class="form-group">
-                        <label>Dirección de entrega *</label>
-                        <input type="text" id="address" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Notas adicionales</label>
-                        <textarea id="notes" rows="3"></textarea>
-                    </div>
-                    
-                    <h3>Método de Pago</h3>
-                    <div class="payment-options">
-                        <label class="payment-option selected">
-                            <input type="radio" name="payment" value="efectivo" checked>
-                            <i class="fas fa-money-bill-wave"></i>
-                            <span>Efectivo</span>
+                    <h3 style="margin-top: 30px;">Método de Pago</h3>
+                    <div class="payment-methods">
+                        <label>
+                            <input type="radio" name="payment" value="tarjeta" checked>
+                            <i class="fas fa-credit-card"></i> Tarjeta de Crédito/Débito
                         </label>
-                        
-                        <label class="payment-option">
+                        <label>
+                            <input type="radio" name="payment" value="efectivo">
+                            <i class="fas fa-money-bill-wave"></i> Pago en Efectivo
+                        </label>
+                        <label>
                             <input type="radio" name="payment" value="transferencia">
-                            <i class="fas fa-university"></i>
-                            <span>Transferencia</span>
-                        </label>
-                        
-                        <label class="payment-option">
-                            <input type="radio" name="payment" value="qr">
-                            <i class="fas fa-qrcode"></i>
-                            <span>QR Bolivia</span>
+                            <i class="fas fa-university"></i> Transferencia Bancaria
                         </label>
                     </div>
                     
-                    <button type="submit" class="confirm-btn">
-                        <i class="fas fa-check-circle"></i> CONFIRMAR PEDIDO
+                    <div id="tarjeta-info" style="margin-top: 20px; padding: 20px; background: #f8f9fa; border-radius: 5px; display: block;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                            <input type="text" placeholder="Número de Tarjeta">
+                            <input type="text" placeholder="CVV">
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px;">
+                            <input type="text" placeholder="MM/AA">
+                            <input type="text" placeholder="Titular de la Tarjeta">
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 30px; padding: 15px; background: #f8f9fa; border-radius: 5px;">
+                        <label>
+                            <input type="checkbox" required>
+                            Acepto los <a href="#" style="color: #3498db;">términos y condiciones</a> y la <a href="#" style="color: #3498db;">política de privacidad</a>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn" style="width: 100%; margin-top: 30px; padding: 15px;">
+                        <i class="fas fa-lock"></i> Confirmar Pedido y Pagar
                     </button>
                 </form>
+            </div>
+            
+            <div class="checkout-resumen">
+                <h3>Resumen del Pedido</h3>
+                <div class="producto-resumen">
+                    <span>Pastel de Chocolate x1</span>
+                    <span>$15.99</span>
+                </div>
+                <div class="producto-resumen">
+                    <span>Donas Glaseadas x2</span>
+                    <span>$9.98</span>
+                </div>
+                <div class="producto-resumen">
+                    <span>Chocolate Caliente x1</span>
+                    <span>$3.99</span>
+                </div>
+                <div class="producto-resumen">
+                    <span>Envío</span>
+                    <span>$3.00</span>
+                </div>
+                <div class="resumen-total">
+                    <span>Total a Pagar:</span>
+                    <span>$32.96</span>
+                </div>
                 
-                <div class="checkout-summary">
-                    <h3>TU PEDIDO</h3>
-                    <div class="summary-items" id="orderItems">
-                        <!-- Items del carrito -->
-                    </div>
-                    
-                    <div class="summary-totals">
-                        <div class="total-row">
-                            <span>Subtotal:</span>
-                            <span id="orderSubtotal">Bs. 0.00</span>
-                        </div>
-                        <div class="total-row">
-                            <span>Envío:</span>
-                            <span id="orderShipping">Bs. 0.00</span>
-                        </div>
-                        <div class="total-row final">
-                            <span>Total a pagar:</span>
-                            <span id="orderTotal">Bs. 0.00</span>
-                        </div>
-                    </div>
+                <div style="margin-top: 30px; padding: 20px; background: #eafaf1; border-radius: 5px; border-left: 4px solid #27ae60;">
+                    <h4 style="margin: 0 0 10px 0; color: #27ae60;">
+                        <i class="fas fa-info-circle"></i> Información Importante
+                    </h4>
+                    <p style="margin: 0; color: #666; font-size: 14px;">
+                        • Envío en 30-45 minutos<br>
+                        • Pago 100% seguro<br>
+                        • Factura electrónica incluida
+                    </p>
+                </div>
+                
+                <div style="margin-top: 20px; text-align: center;">
+                    <a href="carrito.html" style="color: #3498db; text-decoration: none;">
+                        <i class="fas fa-edit"></i> Modificar Carrito
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
+    </main>
 
-    <script src="../js/checkout.js"></script>
-    <script src="../js/cart.js"></script>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 2X Delicias. Todos los derechos reservados.</p>
+            <p>contacto@2xdelicias.com | Tel: (123) 456-7890</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // Mostrar/ocultar información de tarjeta según método de pago
+        document.querySelectorAll('input[name="payment"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const tarjetaInfo = document.getElementById('tarjeta-info');
+                if (this.value === 'tarjeta') {
+                    tarjetaInfo.style.display = 'block';
+                } else {
+                    tarjetaInfo.style.display = 'none';
+                }
+            });
+        });
+    </script>
 </body>
 </html>

@@ -1,58 +1,108 @@
 <!DOCTYPE html>
-<html lang="es-BO">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pasteles - Happy Smile</title>
+    <title>Pasteles - 2X Delicias</title>
+    <meta name="description" content="Deliciosos pasteles artesanales: chocolate, vainilla, fresa, red velvet y más. Frescos y hechos a mano.">
     <link rel="stylesheet" href="../../css/styles.css">
-    <link rel="stylesheet" href="../../css/header.css">
-    <link rel="stylesheet" href="../../css/products.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header class="header">
         <div class="container">
-            <div class="header-content">
-                <a href="../../index.html" class="logo">
-                    <div class="logo-icon">😊</div>
-                    <div class="logo-text">
-                        <h1>Happy Smile</h1>
-                        <p class="tagline">Repostería con Alegría</p>
-                    </div>
-                </a>
-                <nav class="main-nav">
-                    <ul class="nav-list">
-                        <li><a href="../../index.html">INICIO</a></li>
-                        <li><a href="galletas.html">GALLETAS</a></li>
-                        <li><a href="donas.html">DONAS</a></li>
-                        <li><a href="pasteles.html" class="active">PASTELES</a></li>
-                        <li><a href="bebidas.html">BEBIDAS</a></li>
-                    </ul>
-                </nav>
-                <a href="../carrito.html" class="cart-button">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span class="cart-count">0</span>
-                </a>
+            <div class="logo">
+                <h1>2X Delicias</h1>
             </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="../../index.html">Inicio</a></li>
+                    <li><a href="pasteles.html" class="active">Pasteles</a></li>
+                    <li><a href="donas.html">Donas</a></li>
+                    <li><a href="galletas.html">Galletas</a></li>
+                    <li><a href="bebidas.html">Bebidas</a></li>
+                    <li>
+                        <a href="../carrito.html">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-badge" style="display: none;">0</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
         </div>
     </header>
 
-    <section class="products-page">
-        <div class="container">
-            <h1>PASTELES ELEGANTES</h1>
-            <p>Para ocasiones especiales</p>
-            <div class="products-grid" id="productsContainer"></div>
+    <main class="container productos-page">
+        <h2>Nuestros Pasteles</h2>
+        <div class="productos-grid">
+            <div class="producto">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Pastel de Chocolate" loading="lazy">
+                <h3>Pastel de Chocolate</h3>
+                <p>$15.99</p>
+                <button class="btn-add">Añadir al Carrito</button>
+            </div>
+            
+            <div class="producto">
+                <img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Pastel de Vainilla" loading="lazy">
+                <h3>Pastel de Vainilla</h3>
+                <p>$14.99</p>
+                <button class="btn-add">Añadir al Carrito</button>
+            </div>
+            
+            <div class="producto">
+                <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Pastel de Fresa" loading="lazy">
+                <h3>Pastel de Fresa</h3>
+                <p>$16.99</p>
+                <button class="btn-add">Añadir al Carrito</button>
+            </div>
+            
+            <div class="producto">
+                <img src="https://images.unsplash.com/photo-1570476922354-81227cd745d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Pastel de Zanahoria" loading="lazy">
+                <h3>Pastel de Zanahoria</h3>
+                <p>$17.99</p>
+                <button class="btn-add">Añadir al Carrito</button>
+            </div>
+            
+            <div class="producto">
+                <img src="https://images.unsplash.com/photo-1519861531473-920034658307?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Pastel Red Velvet" loading="lazy">
+                <h3>Pastel Red Velvet</h3>
+                <p>$18.99</p>
+                <button class="btn-add">Añadir al Carrito</button>
+            </div>
+            
+            <div class="producto">
+                <img src="https://images.unsplash.com/photo-1519677100203-5f5a1c56b7b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Pastel de Queso" loading="lazy">
+                <h3>Pastel de Queso</h3>
+                <p>$19.99</p>
+                <button class="btn-add">Añadir al Carrito</button>
+            </div>
+            
+            <div class="producto">
+                <img src="https://images.unsplash.com/photo-1559620192-032c64bc86af?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Pastel de Limón" loading="lazy">
+                <h3>Pastel de Limón</h3>
+                <p>$16.50</p>
+                <button class="btn-add">Añadir al Carrito</button>
+            </div>
+            
+            <div class="producto">
+                <img src="https://images.unsplash.com/photo-1590080874088-8bcd5a3a2c7f?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Pastel de Coco" loading="lazy">
+                <h3>Pastel de Coco</h3>
+                <p>$17.50</p>
+                <button class="btn-add">Añadir al Carrito</button>
+            </div>
         </div>
-    </section>
+    </main>
 
     <footer class="footer">
         <div class="container">
-            <p>Happy Smile &copy; 2024</p>
-            <p>+591 777 888 999</p>
+            <p>&copy; 2024 2X Delicias. Todos los derechos reservados.</p>
+            <p>contacto@2xdelicias.com | Tel: (123) 456-7890</p>
         </div>
     </footer>
 
-    <script src="../../js/products.js"></script>
-    <script src="../../js/cart.js"></script>
+    <script src="../../js/main.js"></script>
 </body>
 </html>

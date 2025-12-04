@@ -1,66 +1,108 @@
 <!DOCTYPE html>
-<html lang="es-BO">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donas - Happy Smile</title>
+    <title>Donas - 2X Delicias</title>
+    <meta name="description" content="Donas frescas y deliciosas: glaseadas, chocolate, azúcar, rellenas y más. Hechas diariamente.">
     <link rel="stylesheet" href="../../css/styles.css">
-    <link rel="stylesheet" href="../../css/header.css">
-    <link rel="stylesheet" href="../../css/products.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header class="header">
         <div class="container">
-            <div class="header-content">
-                <a href="../../index.html" class="logo">
-                    <div class="logo-icon">😊</div>
-                    <div class="logo-text">
-                        <h1>Happy Smile</h1>
-                        <p class="tagline">Repostería con Alegría</p>
-                    </div>
-                </a>
-                <nav class="main-nav">
-                    <ul class="nav-list">
-                        <li><a href="../../index.html"><i class="fas fa-home"></i> INICIO</a></li>
-                        <li><a href="galletas.html"><i class="fas fa-cookie-bite"></i> GALLETAS</a></li>
-                        <li><a href="donas.html" class="active"><i class="fas fa-donate"></i> DONAS</a></li>
-                        <li><a href="pasteles.html"><i class="fas fa-birthday-cake"></i> PASTELES</a></li>
-                        <li><a href="bebidas.html"><i class="fas fa-coffee"></i> BEBIDAS</a></li>
-                    </ul>
-                </nav>
-                <div class="header-actions">
-                    <a href="../carrito.html" class="cart-button">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class="cart-count">0</span>
-                    </a>
-                </div>
+            <div class="logo">
+                <h1>2X Delicias</h1>
             </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="../../index.html">Inicio</a></li>
+                    <li><a href="pasteles.html">Pasteles</a></li>
+                    <li><a href="donas.html" class="active">Donas</a></li>
+                    <li><a href="galletas.html">Galletas</a></li>
+                    <li><a href="bebidas.html">Bebidas</a></li>
+                    <li>
+                        <a href="../carrito.html">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-badge" style="display: none;">0</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
         </div>
     </header>
 
-    <section class="products-page">
-        <div class="container">
-            <h1 class="page-title">DONAS PREMIUM</h1>
-            <p class="page-subtitle">Donas esponjosas y glaseadas</p>
-            <div class="products-grid" id="productsContainer"></div>
+    <main class="container productos-page">
+        <h2>Nuestras Donas</h2>
+        <div class="productos-grid">
+            <div class="producto">
+                <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Donas Glaseadas" loading="lazy">
+                <h3>Donas Glaseadas</h3>
+                <p>$4.99 (6 unidades)</p>
+                <button class="btn-add">Añadir al Carrito</button>
+            </div>
+            
+            <div class="producto">
+                <img src="https://images.unsplash.com/photo-1509474520771-2eabd1d53b45?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Donas de Chocolate" loading="lazy">
+                <h3>Donas de Chocolate</h3>
+                <p>$5.99 (6 unidades)</p>
+                <button class="btn-add">Añadir al Carrito</button>
+            </div>
+            
+            <div class="producto">
+                <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Donas de Azúcar" loading="lazy">
+                <h3>Donas de Azúcar</h3>
+                <p>$4.49 (6 unidades)</p>
+                <button class="btn-add">Añadir al Carrito</button>
+            </div>
+            
+            <div class="producto">
+                <img src="https://images.unsplash.com/photo-1579761314336-8c6e2d5e4c04?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Donas Rellenas" loading="lazy">
+                <h3>Donas Rellenas</h3>
+                <p>$6.99 (6 unidades)</p>
+                <button class="btn-add">Añadir al Carrito</button>
+            </div>
+            
+            <div class="producto">
+                <img src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Mini Donas" loading="lazy">
+                <h3>Mini Donas</h3>
+                <p>$7.99 (12 unidades)</p>
+                <button class="btn-add">Añadir al Carrito</button>
+            </div>
+            
+            <div class="producto">
+                <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Donas Especiales" loading="lazy">
+                <h3>Donas Especiales</h3>
+                <p>$8.99 (6 unidades)</p>
+                <button class="btn-add">Añadir al Carrito</button>
+            </div>
+            
+            <div class="producto">
+                <img src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Donas de Canela" loading="lazy">
+                <h3>Donas de Canela</h3>
+                <p>$5.50 (6 unidades)</p>
+                <button class="btn-add">Añadir al Carrito</button>
+            </div>
+            
+            <div class="producto">
+                <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Donas Gourmet" loading="lazy">
+                <h3>Donas Gourmet</h3>
+                <p>$9.99 (6 unidades)</p>
+                <button class="btn-add">Añadir al Carrito</button>
+            </div>
         </div>
-    </section>
+    </main>
 
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Happy Smile</h3>
-                    <p>+591 777 888 999</p>
-                    <p>pedidos@happysmile.bo</p>
-                </div>
-            </div>
-            <p>&copy; 2024 Happy Smile</p>
+            <p>&copy; 2024 2X Delicias. Todos los derechos reservados.</p>
+            <p>contacto@2xdelicias.com | Tel: (123) 456-7890</p>
         </div>
     </footer>
 
-    <script src="../../js/products.js"></script>
-    <script src="../../js/cart.js"></script>
+    <script src="../../js/main.js"></script>
 </body>
 </html>

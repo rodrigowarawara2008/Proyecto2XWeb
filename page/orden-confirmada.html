@@ -1,100 +1,87 @@
 <!DOCTYPE html>
-<html lang="es-BO">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Pedido Confirmado! - Happy Smile</title>
+    <title>¡Pedido Confirmado! - 2X Delicias</title>
+    <meta name="description" content="Tu pedido ha sido confirmado exitosamente.">
     <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .confirmation {
-            text-align: center;
-            padding: 100px 20px;
-        }
-        .confirmation-icon {
-            font-size: 80px;
-            color: #27ae60;
-            margin-bottom: 20px;
-        }
-        .order-details {
-            background: #f8f9fa;
-            padding: 30px;
-            border-radius: 15px;
-            max-width: 600px;
-            margin: 30px auto;
-            text-align: left;
-        }
-    </style>
 </head>
 <body>
     <header class="header">
         <div class="container">
-            <div class="header-content">
-                <a href="../index.html" class="logo">
-                    <div class="logo-icon">😊</div>
-                    <h1>Happy Smile</h1>
-                </a>
-                <nav>
-                    <a href="../index.html">INICIO</a>
-                    <a href="productos/galletas.html">SEGUIR COMPRANDO</a>
-                </nav>
+            <div class="logo">
+                <h1>2X Delicias</h1>
             </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="products/pasteles.html">Pasteles</a></li>
+                    <li><a href="products/donas.html">Donas</a></li>
+                    <li><a href="products/galletas.html">Galletas</a></li>
+                    <li><a href="products/bebidas.html">Bebidas</a></li>
+                    <li>
+                        <a href="carrito.html">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-badge" style="display: none;">0</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
         </div>
     </header>
 
-    <section class="confirmation">
-        <div class="container">
-            <div class="confirmation-icon">
-                <i class="fas fa-check-circle"></i>
+    <main class="container">
+        <div class="confirmacion">
+            <i class="fas fa-check-circle"></i>
+            <h2>¡Pedido Confirmado!</h2>
+            <p>Gracias por tu compra. Tu pedido ha sido procesado exitosamente.</p>
+            
+            <div class="numero-orden">
+                <strong>Número de Orden:</strong> #ORD-2024-00123
             </div>
             
-            <h1>¡PEDIDO CONFIRMADO!</h1>
-            <p class="subtitle">Gracias por tu compra. Tu pedido está siendo preparado.</p>
+            <p>Te hemos enviado un correo con los detalles de tu compra a <strong>cliente@email.com</strong>.</p>
+            <p style="background: #fff3cd; padding: 15px; border-radius: 5px; border-left: 4px solid #ffc107;">
+                <i class="fas fa-clock"></i> <strong>Tiempo estimado de entrega:</strong> 30-45 minutos
+            </p>
             
-            <div class="order-details" id="orderDetails">
-                <!-- Detalles se cargan con JS -->
-            </div>
-            
-            <div class="confirmation-actions">
-                <a href="../index.html" class="btn btn-primary">
-                    <i class="fas fa-home"></i> VOLVER AL INICIO
+            <div style="margin-top: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                <a href="../index.html" class="btn-secondary">
+                    <i class="fas fa-home"></i> Volver al Inicio
                 </a>
-                <a href="https://wa.me/591777888999" target="_blank" class="btn btn-secondary">
-                    <i class="fab fa-whatsapp"></i> CONTACTAR POR WHATSAPP
+                <a href="products/pasteles.html" class="btn">
+                    <i class="fas fa-shopping-bag"></i> Seguir Comprando
                 </a>
             </div>
             
-            <div class="delivery-info">
-                <h3><i class="fas fa-truck"></i> Información de Entrega</h3>
-                <p>Tu pedido llegará en aproximadamente 45 minutos</p>
-                <p>Recibirás una llamada de confirmación antes de la entrega</p>
+            <div style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-radius: 10px; text-align: left;">
+                <h4 style="margin-top: 0; color: #2c3e50;">
+                    <i class="fas fa-info-circle"></i> Información del Pedido
+                </h4>
+                <p><strong>Dirección de entrega:</strong> Calle Principal #123, Ciudad</p>
+                <p><strong>Método de pago:</strong> Tarjeta de Crédito</p>
+                <p><strong>Total pagado:</strong> $32.96</p>
+                <p><strong>Estado:</strong> <span style="color: #27ae60; font-weight: bold;">En preparación</span></p>
             </div>
+            
+            <p style="margin-top: 30px; color: #666; font-size: 14px;">
+                ¿Tienes preguntas? Contáctanos al (123) 456-7890 o contacto@2xdelicias.com
+            </p>
         </div>
-    </section>
+    </main>
 
-    <script>
-        // Mostrar detalles del último pedido
-        document.addEventListener('DOMContentLoaded', () => {
-            const lastOrder = JSON.parse(localStorage.getItem('lastOrder'));
-            const container = document.getElementById('orderDetails');
-            
-            if (lastOrder && container) {
-                const items = lastOrder.items.map(item => 
-                    `<p>${item.name} x${item.quantity} - Bs. ${(item.price * item.quantity).toFixed(2)}</p>`
-                ).join('');
-                
-                container.innerHTML = `
-                    <h3>Pedido #${lastOrder.id}</h3>
-                    <p><strong>Cliente:</strong> ${lastOrder.customer.name}</p>
-                    <p><strong>Teléfono:</strong> ${lastOrder.customer.phone}</p>
-                    <p><strong>Dirección:</strong> ${lastOrder.customer.address}</p>
-                    <p><strong>Método de pago:</strong> ${lastOrder.payment}</p>
-                    <div class="order-items">${items}</div>
-                    <h4>Total: ${lastOrder.total}</h4>
-                `;
-            }
-        });
-    </script>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 2X Delicias. Todos los derechos reservados.</p>
+            <p>contacto@2xdelicias.com | Tel: (123) 456-7890</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
 </body>
 </html>

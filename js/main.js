@@ -1,437 +1,304 @@
-/* ============================================
-   MAIN.JS - FUNCIONALIDADES PRINCIPALES
-   ============================================ */
+// ===== 2X DELICIAS - JAVASCRIPT PRINCIPAL =====
+// Archivo único para todas las funcionalidades del sitio
 
-// Inicialización cuando el DOM está listo
+// ===== 1. CONFIGURACIÓN INICIAL =====
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Happy Smile - Página cargada');
+    console.log('2X Delicias - Sitio cargado correctamente');
     
-    // Inicializar carrito
-    initCart();
-    
-    // Inicializar productos destacados
-    initFeaturedProducts();
-    
-    // Inicializar testimonios
-    initTestimonials();
-    
-    // Inicializar animaciones
+    // Inicializar todas las funcionalidades
+    initMobileMenu();
+    initCartSystem();
+    initForms();
     initAnimations();
-    
-    // Configurar eventos
-    setupEventListeners();
+    updateCartBadge();
 });
 
-/* ========== CARRITO DE COMPRAS ========== */
-
-// Variable global del carrito
-let cart = JSON.parse(localStorage.getItem('happySmileCart')) || [];
-
-// Inicializar carrito
-function initCart() {
-    updateCartCount();
-    updateCartTotal();
-}
-
-// Actualizar contador del carrito
-function updateCartCount() {
-    const cartCount = document.querySelectorAll('.cart-count, .cart-badge');
-    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+// ===== 2. MENÚ MÓVIL =====
+function initMobileMenu() {
+    const menuBtn = document.querySelector('.menu-btn');
+    const navMenu = document.querySelector('.nav-menu');
     
-    cartCount.forEach(element => {
-        element.textContent = totalItems;
+    if (!menuBtn || !navMenu) return;
+    
+    menuBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        navMenu.classList.toggle('active');
+    });
+    
+    // Cerrar menú al hacer clic en enlace
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+        });
+    });
+    
+    // Cerrar menú al hacer clic fuera
+    document.addEventListener('click', function(e) {
+        if (!navMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+            navMenu.classList.remove('active');
+        }
     });
 }
 
-// Actualizar total del carrito
-function updateCartTotal() {
-    const cartTotal = document.querySelector('.cart-total');
-    if (cartTotal) {
-        const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-        cartTotal.textContent = `Bs. ${total.toFixed(2)}`;
-    }
+// ===== 3. SISTEMA DE CARRITO =====
+function initCartSystem() {
+    // Añadir productos al carrito
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('btn-add')) {
+            const producto = e.target.closest('.producto');
+            if (!producto) return;
+            
+            const nombre = producto.querySelector('h3').textContent;
+            const precio = producto.querySelector('p').textContent;
+            
+            showNotification(`✓ ${nombre} añadido al carrito`, 'success');
+            updateCartBadge(1);
+            
+            // Guardar en localStorage
+            saveToCart({ nombre, precio, cantidad: 1 });
+        }
+        
+        // Eliminar productos del carrito
+        if (e.target.classList.contains('btn-remove') || e.target.closest('.btn-remove')) {
+            if (confirm('¿Eliminar producto del carrito?')) {
+                const fila = e.target.closest('tr');
+                if (fila) {
+                    fila.style.animation = 'fadeOut 0.3s ease-out';
+                    setTimeout(() => {
+                        fila.remove();
+                        updateCartTotal();
+                        showNotification('Producto eliminado', 'error');
+                        updateCartBadge(-1);
+                    }, 300);
+                }
+            }
+        }
+    });
+    
+    // Actualizar cantidades
+    document.addEventListener('change', function(e) {
+        if (e.target.classList.contains('cantidad-input')) {
+            updateCartTotal();
+        }
+    });
 }
 
-// Añadir producto al carrito
-function addToCart(productId, productName, productPrice, productImage) {
-    // Buscar si el producto ya está en el carrito
-    const existingItem = cart.find(item => item.id === productId);
-    
-    if (existingItem) {
-        // Incrementar cantidad
-        existingItem.quantity += 1;
-    } else {
-        // Añadir nuevo producto
-        cart.push({
-            id: productId,
-            name: productName,
-            price: productPrice,
-            image: productImage,
-            quantity: 1
+// ===== 4. FORMULARIOS =====
+function initForms() {
+    // Formulario de contacto
+    const contactoForm = document.getElementById('form-contacto');
+    if (contactoForm) {
+        contactoForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            showNotification('✓ Mensaje enviado. Te contactaremos pronto.', 'success');
+            setTimeout(() => this.reset(), 1000);
         });
     }
     
-    // Guardar en localStorage
-    localStorage.setItem('happySmileCart', JSON.stringify(cart));
-    
-    // Actualizar interfaz
-    updateCartCount();
-    updateCartTotal();
-    
-    // Mostrar notificación
-    showNotification('Producto añadido al carrito', 'success');
-    
-    // Reproducir sonido (opcional)
-    playAddToCartSound();
-}
-
-// Eliminar producto del carrito
-function removeFromCart(productId) {
-    cart = cart.filter(item => item.id !== productId);
-    localStorage.setItem('happySmileCart', JSON.stringify(cart));
-    updateCartCount();
-    updateCartTotal();
-}
-
-// Actualizar cantidad de producto
-function updateQuantity(productId, newQuantity) {
-    const item = cart.find(item => item.id === productId);
-    if (item) {
-        if (newQuantity < 1) {
-            removeFromCart(productId);
-        } else {
-            item.quantity = newQuantity;
-            localStorage.setItem('happySmileCart', JSON.stringify(cart));
-            updateCartCount();
-            updateCartTotal();
-        }
+    // Formulario de checkout
+    const checkoutForm = document.getElementById('checkout-form');
+    if (checkoutForm) {
+        checkoutForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validación básica
+            const inputs = this.querySelectorAll('input[required], select[required]');
+            let isValid = true;
+            
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    input.style.borderColor = '#e74c3c';
+                    isValid = false;
+                } else {
+                    input.style.borderColor = '#ddd';
+                }
+            });
+            
+            if (isValid) {
+                showNotification('✓ Pedido confirmado. Redirigiendo...', 'success');
+                setTimeout(() => {
+                    window.location.href = 'orden-confirmada.html';
+                }, 2000);
+            } else {
+                showNotification('⚠ Completa todos los campos requeridos', 'error');
+            }
+        });
     }
 }
 
-// Vaciar carrito
-function clearCart() {
-    cart = [];
-    localStorage.removeItem('happySmileCart');
-    updateCartCount();
-    updateCartTotal();
-}
-
-/* ========== PRODUCTOS DESTACADOS ========== */
-
-// Datos de productos destacados
-const featuredProducts = [
-    {
-        id: 'galleta-premium',
-        name: 'Galleta de Chocolate Premium',
-        price: 8.00,
-        image: '🍪',
-        category: 'galletas',
-        description: 'Galleta artesanal con chispas de chocolate belga'
-    },
-    {
-        id: 'dona-glaseada',
-        name: 'Dona Glaseada Especial',
-        price: 12.00,
-        image: '🍩',
-        category: 'donas',
-        description: 'Dona esponjosa con glaseado de vainilla premium'
-    },
-    {
-        id: 'pastel-chocolate',
-        name: 'Pastel de Chocolate',
-        price: 45.00,
-        image: '🎂',
-        category: 'pasteles',
-        description: 'Pastel de chocolate con relleno de crema'
-    },
-    {
-        id: 'cafe-boliviano',
-        name: 'Café Boliviano Premium',
-        price: 15.00,
-        image: '☕',
-        category: 'bebidas',
-        description: 'Café de altura de los Yungas de Bolivia'
-    }
-];
-
-// Inicializar productos destacados
-function initFeaturedProducts() {
-    const featuredContainer = document.getElementById('featuredProducts');
-    if (!featuredContainer) return;
-    
-    featuredProducts.forEach(product => {
-        const productCard = createProductCard(product);
-        featuredContainer.appendChild(productCard);
-    });
-}
-
-// Crear tarjeta de producto
-function createProductCard(product) {
-    const card = document.createElement('div');
-    card.className = 'product-card-featured';
-    card.innerHTML = `
-        <div class="product-image-featured">
-            <div class="image-placeholder">
-                ${product.image}
-            </div>
-        </div>
-        <div class="product-info-featured">
-            <h4>${product.name}</h4>
-            <p class="product-description">${product.description}</p>
-            <div class="product-price-featured">
-                <span class="price">Bs. ${product.price.toFixed(2)}</span>
-                <button class="add-to-cart-btn" 
-                        data-id="${product.id}"
-                        data-name="${product.name}"
-                        data-price="${product.price}"
-                        data-image="${product.image}">
-                    <i class="fas fa-plus"></i> Añadir
-                </button>
-            </div>
-        </div>
+// ===== 5. FUNCIONES AUXILIARES =====
+function showNotification(message, type = 'success') {
+    // Crear notificación
+    const notification = document.createElement('div');
+    notification.className = 'notification';
+    notification.innerHTML = `
+        <span>${message}</span>
+        <button onclick="this.parentElement.remove()">×</button>
     `;
     
-    return card;
+    // Estilos dinámicos
+    Object.assign(notification.style, {
+        position: 'fixed',
+        top: '20px',
+        right: '20px',
+        padding: '15px 20px',
+        background: type === 'success' ? '#27ae60' : '#e74c3c',
+        color: 'white',
+        borderRadius: '5px',
+        zIndex: '10000',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        minWidth: '300px',
+        animation: 'slideIn 0.3s ease-out',
+        boxShadow: '0 5px 15px rgba(0,0,0,0.2)'
+    });
+    
+    document.body.appendChild(notification);
+    
+    // Auto-eliminar
+    setTimeout(() => {
+        if (notification.parentElement) {
+            notification.style.animation = 'slideOut 0.3s ease-out';
+            setTimeout(() => notification.remove(), 300);
+        }
+    }, 4000);
 }
 
-/* ========== TESTIMONIOS ========== */
-
-// Datos de testimonios
-const testimonials = [
-    {
-        name: "María González",
-        text: "Las mejores galletas que he probado en La Paz. Siempre frescas y deliciosas.",
-        rating: 5
-    },
-    {
-        name: "Carlos Rodríguez",
-        text: "El servicio de delivery es increíblemente rápido. ¡Llegan en menos de 30 minutos!",
-        rating: 5
-    },
-    {
-        name: "Ana Martínez",
-        text: "Los pasteles personalizados son una obra de arte. Perfectos para cumpleaños.",
-        rating: 4
-    },
-    {
-        name: "Juan Pérez",
-        text: "Excelente calidad y precios justos. Mi familia los ama.",
-        rating: 5
-    }
-];
-
-// Inicializar testimonios
-function initTestimonials() {
-    const track = document.getElementById('testimonialsTrack');
-    const dots = document.getElementById('sliderDots');
+function updateCartBadge(increment = 0) {
+    let cartCount = parseInt(localStorage.getItem('cartCount') || '0');
+    cartCount = Math.max(0, cartCount + increment);
+    localStorage.setItem('cartCount', cartCount);
     
-    if (!track || !dots) return;
+    // Actualizar badge en todas las páginas
+    document.querySelectorAll('.cart-badge').forEach(badge => {
+        badge.textContent = cartCount;
+        badge.style.display = cartCount > 0 ? 'flex' : 'none';
+    });
     
-    // Crear slides
-    testimonials.forEach((testimonial, index) => {
-        // Slide
-        const slide = document.createElement('div');
-        slide.className = 'testimonial-slide';
-        slide.innerHTML = `
-            <div class="testimonial-content">
-                <div class="testimonial-rating">
-                    ${'⭐'.repeat(testimonial.rating)}
-                </div>
-                <p class="testimonial-text">"${testimonial.text}"</p>
-                <p class="testimonial-author">- ${testimonial.name}</p>
-            </div>
-        `;
-        track.appendChild(slide);
+    return cartCount;
+}
+
+function saveToCart(product) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push(product);
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+function updateCartTotal() {
+    let total = 0;
+    document.querySelectorAll('.carrito-table tbody tr').forEach(row => {
+        const priceText = row.cells[1].textContent.replace('$', '');
+        const price = parseFloat(priceText) || 0;
+        const quantity = parseInt(row.querySelector('.cantidad-input')?.value) || 1;
+        const subtotal = price * quantity;
         
-        // Dot
-        const dot = document.createElement('button');
-        dot.className = 'slider-dot';
-        if (index === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => goToSlide(index));
-        dots.appendChild(dot);
+        if (row.cells[3]) {
+            row.cells[3].textContent = '$' + subtotal.toFixed(2);
+        }
+        
+        total += subtotal;
     });
     
-    // Inicializar slider
-    currentSlide = 0;
-    slideCount = testimonials.length;
-}
-
-// Control deslizante de testimonios
-let currentSlide = 0;
-let slideCount = 0;
-
-function goToSlide(index) {
-    const track = document.getElementById('testimonialsTrack');
-    const dots = document.querySelectorAll('.slider-dot');
+    // Actualizar resumen si existe
+    const subtotalElement = document.querySelector('.resumen-item:first-child span:last-child');
+    const totalElement = document.querySelector('.resumen-item.total span:last-child');
     
-    if (!track || !dots) return;
+    if (subtotalElement) {
+        subtotalElement.textContent = '$' + total.toFixed(2);
+    }
     
-    currentSlide = index;
-    track.style.transform = `translateX(-${currentSlide * 100}%)`;
-    
-    dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === currentSlide);
-    });
+    if (totalElement) {
+        const shipping = 3.00;
+        totalElement.textContent = '$' + (total + shipping).toFixed(2);
+    }
 }
 
-function nextSlide() {
-    currentSlide = (currentSlide + 1) % slideCount;
-    goToSlide(currentSlide);
-}
-
-function prevSlide() {
-    currentSlide = (currentSlide - 1 + slideCount) % slideCount;
-    goToSlide(currentSlide);
-}
-
-/* ========== ANIMACIONES ========== */
-
+// ===== 6. ANIMACIONES =====
 function initAnimations() {
-    // Animación de scroll
-    window.addEventListener('scroll', handleScroll);
-    
-    // Animación de entrada
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
+    // Observador para animaciones al scroll
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in');
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
             }
         });
-    }, observerOptions);
+    }, { threshold: 0.1 });
     
-    // Observar elementos para animación
-    document.querySelectorAll('.category-card, .info-item').forEach(el => {
-        observer.observe(el);
+    // Animar productos
+    document.querySelectorAll('.producto').forEach(producto => {
+        producto.style.opacity = '0';
+        producto.style.transform = 'translateY(20px)';
+        producto.style.transition = 'all 0.5s ease-out';
+        observer.observe(producto);
     });
 }
 
-function handleScroll() {
-    const backToTop = document.querySelector('.back-to-top');
-    if (backToTop) {
-        if (window.scrollY > 300) {
-            backToTop.classList.add('visible');
-        } else {
-            backToTop.classList.remove('visible');
+// ===== 7. INYECTAR ESTILOS GLOBALES =====
+(function injectGlobalStyles() {
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
         }
-    }
-}
-
-/* ========== NOTIFICACIONES ========== */
-
-function showNotification(message, type = 'info') {
-    // Crear notificación
-    const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
-    notification.innerHTML = `
-        <i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i>
-        <span>${message}</span>
+        
+        @keyframes slideOut {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+        }
+        
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+        
+        .cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #e74c3c;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 12px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .notification button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            margin-left: 10px;
+            padding: 0;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .notification button:hover {
+            opacity: 0.8;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #3498db !important;
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2) !important;
+        }
     `;
-    
-    // Añadir al cuerpo
-    document.body.appendChild(notification);
-    
-    // Mostrar
-    setTimeout(() => notification.classList.add('show'), 10);
-    
-    // Ocultar después de 3 segundos
-    setTimeout(() => {
-        notification.classList.remove('show');
-        setTimeout(() => notification.remove(), 300);
-    }, 3000);
-}
+    document.head.appendChild(style);
+})();
 
-/* ========== SONIDOS ========== */
-
-function playAddToCartSound() {
-    // Crear sonido simple
-    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-    const oscillator = audioContext.createOscillator();
-    const gainNode = audioContext.createGain();
-    
-    oscillator.connect(gainNode);
-    gainNode.connect(audioContext.destination);
-    
-    oscillator.frequency.value = 800;
-    oscillator.type = 'sine';
-    
-    gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.2);
-    
-    oscillator.start(audioContext.currentTime);
-    oscillator.stop(audioContext.currentTime + 0.2);
-}
-
-/* ========== EVENT LISTENERS ========== */
-
-function setupEventListeners() {
-    // Botón volver arriba
-    const backToTop = document.querySelector('.back-to-top');
-    if (backToTop) {
-        backToTop.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    }
-    
-    // Botones de añadir al carrito
-    document.addEventListener('click', function(e) {
-        if (e.target.closest('.add-to-cart-btn')) {
-            const button = e.target.closest('.add-to-cart-btn');
-            const id = button.dataset.id;
-            const name = button.dataset.name;
-            const price = parseFloat(button.dataset.price);
-            const image = button.dataset.image;
-            
-            addToCart(id, name, price, image);
-        }
-    });
-    
-    // Botones de slider de testimonios
-    const nextBtn = document.querySelector('.slider-next');
-    const prevBtn = document.querySelector('.slider-prev');
-    
-    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
-    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
-    
-    // Cambio de tema (si se implementa)
-    const themeToggle = document.querySelector('.theme-toggle');
-    if (themeToggle) {
-        themeToggle.addEventListener('click', toggleTheme);
-    }
-    
-    // Auto-slide de testimonios
-    setInterval(nextSlide, 5000);
-}
-
-/* ========== TEMA OSCURO/CLARO ========== */
-
-function toggleTheme() {
-    document.body.classList.toggle('dark-theme');
-    const isDark = document.body.classList.contains('dark-theme');
-    localStorage.setItem('happySmileTheme', isDark ? 'dark' : 'light');
-    
-    // Cambiar ícono
-    const icon = document.querySelector('.theme-toggle i');
-    if (icon) {
-        icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
-    }
-}
-
-// Cargar tema guardado
-const savedTheme = localStorage.getItem('happySmileTheme');
-if (savedTheme === 'dark') {
-    document.body.classList.add('dark-theme');
-}
-
-// Exportar funciones para uso global
-window.HappySmile = {
-    addToCart,
-    removeFromCart,
-    updateQuantity,
-    clearCart,
-    showNotification
-};
+// ===== 8. HACER FUNCIONES GLOBALES =====
+window.showNotification = showNotification;
+window.updateCartTotal = updateCartTotal;
+window.updateCartBadge = updateCartBadge;

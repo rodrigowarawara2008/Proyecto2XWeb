@@ -1,87 +1,108 @@
 <!DOCTYPE html>
-<html lang="es-BO">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galletas - Happy Smile</title>
+    <title>Galletas - 2X Delicias</title>
+    <meta name="description" content="Galletas artesanales: chips de chocolate, avena, mantequilla, jengibre y más. Crujientes y deliciosas.">
     <link rel="stylesheet" href="../../css/styles.css">
-    <link rel="stylesheet" href="../../css/header.css">
-    <link rel="stylesheet" href="../../css/products.css">
-    <link rel="stylesheet" href="../../css/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Header (mismo que index.html) -->
     <header class="header">
         <div class="container">
-            <div class="header-content">
-                <a href="../../index.html" class="logo">
-                    <div class="logo-icon">😊</div>
-                    <div class="logo-text">
-                        <h1>Happy Smile</h1>
-                        <p class="tagline">Repostería con Alegría</p>
-                    </div>
-                </a>
-                <nav class="main-nav">
-                    <ul class="nav-list">
-                        <li><a href="../../index.html"><i class="fas fa-home"></i> INICIO</a></li>
-                        <li><a href="galletas.html" class="active"><i class="fas fa-cookie-bite"></i> GALLETAS</a></li>
-                        <li><a href="donas.html"><i class="fas fa-donate"></i> DONAS</a></li>
-                        <li><a href="pasteles.html"><i class="fas fa-birthday-cake"></i> PASTELES</a></li>
-                        <li><a href="bebidas.html"><i class="fas fa-coffee"></i> BEBIDAS</a></li>
-                        <li><a href="../contacto.html"><i class="fas fa-envelope"></i> CONTACTO</a></li>
-                    </ul>
-                </nav>
-                <div class="header-actions">
-                    <a href="../carrito.html" class="cart-button">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class="cart-count">0</span>
-                    </a>
-                </div>
+            <div class="logo">
+                <h1>2X Delicias</h1>
             </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="../../index.html">Inicio</a></li>
+                    <li><a href="pasteles.html">Pasteles</a></li>
+                    <li><a href="donas.html">Donas</a></li>
+                    <li><a href="galletas.html" class="active">Galletas</a></li>
+                    <li><a href="bebidas.html">Bebidas</a></li>
+                    <li>
+                        <a href="../carrito.html">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-badge" style="display: none;">0</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
         </div>
     </header>
 
-    <!-- Contenido Principal -->
-    <section class="products-page">
-        <div class="container">
-            <h1 id="categoryTitle" class="page-title">GALLETAS ARTESANALES</h1>
-            <p class="page-subtitle">Deliciosas galletas hechas a mano</p>
+    <main class="container productos-page">
+        <h2>Nuestras Galletas</h2>
+        <div class="productos-grid">
+            <div class="producto">
+                <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Galletas de Chips" loading="lazy">
+                <h3>Galletas de Chips</h3>
+                <p>$8.99 (12 unidades)</p>
+                <button class="btn-add">Añadir al Carrito</button>
+            </div>
             
-            <div class="products-grid" id="productsContainer">
-                <!-- Productos se cargan con JavaScript -->
+            <div class="producto">
+                <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Galletas de Avena" loading="lazy">
+                <h3>Galletas de Avena</h3>
+                <p>$7.99 (12 unidades)</p>
+                <button class="btn-add">Añadir al Carrito</button>
+            </div>
+            
+            <div class="producto">
+                <img src="https://images.unsplash.com/photo-1559620192-032c64bc86af?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Galletas de Mantequilla" loading="lazy">
+                <h3>Galletas de Mantequilla</h3>
+                <p>$9.99 (12 unidades)</p>
+                <button class="btn-add">Añadir al Carrito</button>
+            </div>
+            
+            <div class="producto">
+                <img src="https://images.unsplash.com/photo-1590080874088-8bcd5a3a2c7f?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Galletas de Jengibre" loading="lazy">
+                <h3>Galletas de Jengibre</h3>
+                <p>$10.99 (12 unidades)</p>
+                <button class="btn-add">Añadir al Carrito</button>
+            </div>
+            
+            <div class="producto">
+                <img src="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Galletas de Chocolate" loading="lazy">
+                <h3>Galletas de Chocolate</h3>
+                <p>$9.49 (12 unidades)</p>
+                <button class="btn-add">Añadir al Carrito</button>
+            </div>
+            
+            <div class="producto">
+                <img src="https://images.unsplash.com/photo-1559620192-032c64bc86af?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Galletas Decoradas" loading="lazy">
+                <h3>Galletas Decoradas</h3>
+                <p>$12.99 (6 unidades)</p>
+                <button class="btn-add">Añadir al Carrito</button>
+            </div>
+            
+            <div class="producto">
+                <img src="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Galletas de Vainilla" loading="lazy">
+                <h3>Galletas de Vainilla</h3>
+                <p>$8.50 (12 unidades)</p>
+                <button class="btn-add">Añadir al Carrito</button>
+            </div>
+            
+            <div class="producto">
+                <img src="https://images.unsplash.com/photo-1590080874088-8bcd5a3a2c7f?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Galletas Integrales" loading="lazy">
+                <h3>Galletas Integrales</h3>
+                <p>$9.50 (12 unidades)</p>
+                <button class="btn-add">Añadir al Carrito</button>
             </div>
         </div>
-    </section>
+    </main>
 
-    <!-- Footer (mismo que index.html) -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="logo">
-                        <div class="logo-icon">😊</div>
-                        <div class="logo-text">
-                            <h3>Happy Smile</h3>
-                            <p>Repostería con Alegría</p>
-                        </div>
-                    </div>
-                    <p>Los mejores productos de repostería en Bolivia</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Contacto</h4>
-                    <p><i class="fas fa-phone"></i> +591 777 888 999</p>
-                    <p><i class="fas fa-map-marker-alt"></i> La Paz, Bolivia</p>
-                    <p><i class="fas fa-envelope"></i> pedidos@happysmile.bo</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Happy Smile</p>
-            </div>
+            <p>&copy; 2024 2X Delicias. Todos los derechos reservados.</p>
+            <p>contacto@2xdelicias.com | Tel: (123) 456-7890</p>
         </div>
     </footer>
 
-    <script src="../../js/products.js"></script>
-    <script src="../../js/cart.js"></script>
+    <script src="../../js/main.js"></script>
 </body>
 </html>
