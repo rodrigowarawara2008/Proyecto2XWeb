@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es-BO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Smile - Repostería Feliz Bolivia</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/products.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>😊</text></svg>">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo y Nombre -->
+                <div class="logo">
+                    <div class="logo-icon">😊</div>
+                    <div class="logo-text">
+                        <h1>Happy Smile</h1>
+                        <p class="tagline">Repostería con Alegría</p>
+                    </div>
+                </div>
+
+                <!-- Navegación Principal -->
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link active"><i class="fas fa-home"></i> INICIO</a></li>
+                        <li><a href="pages/products/galletas.html" class="nav-link"><i class="fas fa-cookie-bite"></i> GALLETAS</a></li>
+                        <li><a href="pages/products/donas.html" class="nav-link"><i class="fas fa-donate"></i> DONAS</a></li>
+                        <li><a href="pages/products/pasteles.html" class="nav-link"><i class="fas fa-birthday-cake"></i> PASTELES</a></li>
+                        <li><a href="pages/products/bebidas.html" class="nav-link"><i class="fas fa-coffee"></i> BEBIDAS</a></li>
+                        <li><a href="pages/contacto.html" class="nav-link"><i class="fas fa-envelope"></i> CONTACTO</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Carrito y Acciones -->
+                <div class="header-actions">
+                    <a href="pages/carrito.html" class="cart-button">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                    <button class="order-button">
+                        <i class="fas fa-bolt"></i>
+                        Ordenar Ya
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="hero-title">Dulces Sonrisas en Cada Bocado</h2>
+                <p class="hero-subtitle">Productos artesanales hechos con amor y los mejores ingredientes de Bolivia</p>
+                <div class="hero-buttons">
+                    <a href="#productos" class="btn btn-primary">
+                        <i class="fas fa-utensils"></i> Ver Productos
+                    </a>
+                    <a href="pages/contacto.html" class="btn btn-secondary">
+                        <i class="fas fa-truck"></i> Delivery
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Productos -->
+    <section id="productos" class="products-section">
+        <div class="container">
+            <h2 class="section-title">Nuestros Productos</h2>
+            <p class="section-subtitle">Elige tu categoría favorita</p>
+
+            <div class="categories-grid">
+                <!-- Galletas -->
+                <a href="pages/products/galletas.html" class="category-card">
+                    <div class="category-image">
+                        <i class="fas fa-cookie-bite"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3>GALLETAS</h3>
+                        <p>Variedad de galletas artesanales</p>
+                        <span class="category-link">Ver Catálogo →</span>
+                    </div>
+                </a>
+
+                <!-- Donas -->
+                <a href="pages/products/donas.html" class="category-card">
+                    <div class="category-image">
+                        <i class="fas fa-donate"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3>DONAS</h3>
+                        <p>Donas esponjosas y glaseadas</p>
+                        <span class="category-link">Ver Catálogo →</span>
+                    </div>
+                </a>
+
+                <!-- Pasteles -->
+                <a href="pages/products/pasteles.html" class="category-card">
+                    <div class="category-image">
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3>PASTELES</h3>
+                        <p>Pasteles para ocasiones especiales</p>
+                        <span class="category-link">Ver Catálogo →</span>
+                    </div>
+                </a>
+
+                <!-- Bebidas -->
+                <a href="pages/products/bebidas.html" class="category-card">
+                    <div class="category-image">
+                        <i class="fas fa-coffee"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3>BEBIDAS</h3>
+                        <p>Bebidas frías y calientes</p>
+                        <span class="category-link">Ver Catálogo →</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Información del Negocio -->
+    <section class="business-info">
+        <div class="container">
+            <div class="info-grid">
+                <div class="info-item">
+                    <i class="fas fa-shipping-fast"></i>
+                    <h4>Delivery Rápido</h4>
+                    <p>Entregamos en 30-45 minutos</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-bolt"></i>
+                    <h4>Pedidos Express</h4>
+                    <p>Preparamos tu orden en 15 minutos</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>Pago Seguro</h4>
+                    <p>Múltiples métodos de pago</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-heart"></i>
+                    <h4>Hecho con Amor</h4>
+                    <p>100% productos artesanales</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Información de la Empresa -->
+                <div class="footer-section">
+                    <div class="logo">
+                        <div class="logo-icon">😊</div>
+                        <div class="logo-text">
+                            <h3>Happy Smile</h3>
+                            <p>Repostería con Alegría</p>
+                        </div>
+                    </div>
+                    <p class="footer-description">
+                        Ofrecemos los mejores productos de repostería artesanal en Bolivia. 
+                        Hechos con ingredientes frescos y mucho amor.
+                    </p>
+                </div>
+
+                <!-- Contacto -->
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Av. Principal #123, La Paz, Bolivia</p>
+                        <p><i class="fas fa-phone"></i> +591 777 888 999</p>
+                        <p><i class="fas fa-envelope"></i> pedidos@happysmile.bo</p>
+                        <p><i class="fas fa-clock"></i> Lunes a Domingo: 8:00 - 20:00</p>
+                    </div>
+                </div>
+
+                <!-- Redes Sociales -->
+                <div class="footer-section">
+                    <h4>Síguenos</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i> Facebook</a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i> Instagram</a>
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <a href="#" class="social-link"><i class="fab fa-tiktok"></i> TikTok</a>
+                    </div>
+                </div>
+
+                <!-- Métodos de Pago -->
+                <div class="footer-section">
+                    <h4>Métodos de Pago</h4>
+                    <div class="payment-methods">
+                        <i class="fab fa-cc-visa" title="Visa"></i>
+                        <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                        <i class="fas fa-money-bill-wave" title="Efectivo"></i>
+                        <i class="fas fa-qrcode" title="QR Bolivia"></i>
+                        <i class="fas fa-university" title="Transferencia"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="footer-bottom">
+                <p>&copy; 2024 Happy Smile. Todos los derechos reservados.</p>
+                <div class="footer-links">
+                    <a href="#">Términos y Condiciones</a>
+                    <a href="#">Política de Privacidad</a>
+                    <a href="#">Política de Delivery</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>

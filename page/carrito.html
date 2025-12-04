@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es-BO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito - Happy Smile</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/cart.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <div class="logo-icon">😊</div>
+                    <h1>Happy Smile</h1>
+                </a>
+                <nav>
+                    <a href="../index.html">INICIO</a>
+                    <a href="productos/galletas.html">PRODUCTOS</a>
+                    <a href="carrito.html" class="active">CARRITO</a>
+                    <a href="contacto.html">CONTACTO</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="cart-section">
+        <div class="container">
+            <h1>TU CARRITO</h1>
+            
+            <div class="cart-container">
+                <div class="cart-items" id="cartItems">
+                    <!-- Items se cargan con JS -->
+                </div>
+                
+                <div class="cart-summary">
+                    <h3>RESUMEN</h3>
+                    <div class="summary-details">
+                        <div class="summary-row">
+                            <span>Subtotal:</span>
+                            <span id="cartSubtotal">Bs. 0.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Envío:</span>
+                            <span id="cartShipping">Bs. 0.00</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total:</span>
+                            <span id="cartTotal">Bs. 0.00</span>
+                        </div>
+                    </div>
+                    
+                    <div id="freeShippingMsg" class="free-shipping-msg">
+                        <i class="fas fa-truck"></i> Añade Bs. 100 más para envío gratis
+                    </div>
+                    
+                    <button id="checkoutBtn" class="checkout-btn" disabled>
+                        <i class="fas fa-lock"></i> PROCEDER AL PAGO
+                    </button>
+                    
+                    <a href="productos/galletas.html" class="continue-shopping">
+                        <i class="fas fa-arrow-left"></i> Seguir comprando
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../js/cart.js"></script>
+</body>
+</html>

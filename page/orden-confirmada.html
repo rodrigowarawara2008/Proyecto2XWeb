@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es-BO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Pedido Confirmado! - Happy Smile</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .confirmation {
+            text-align: center;
+            padding: 100px 20px;
+        }
+        .confirmation-icon {
+            font-size: 80px;
+            color: #27ae60;
+            margin-bottom: 20px;
+        }
+        .order-details {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 600px;
+            margin: 30px auto;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <div class="logo-icon">😊</div>
+                    <h1>Happy Smile</h1>
+                </a>
+                <nav>
+                    <a href="../index.html">INICIO</a>
+                    <a href="productos/galletas.html">SEGUIR COMPRANDO</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="confirmation">
+        <div class="container">
+            <div class="confirmation-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            
+            <h1>¡PEDIDO CONFIRMADO!</h1>
+            <p class="subtitle">Gracias por tu compra. Tu pedido está siendo preparado.</p>
+            
+            <div class="order-details" id="orderDetails">
+                <!-- Detalles se cargan con JS -->
+            </div>
+            
+            <div class="confirmation-actions">
+                <a href="../index.html" class="btn btn-primary">
+                    <i class="fas fa-home"></i> VOLVER AL INICIO
+                </a>
+                <a href="https://wa.me/591777888999" target="_blank" class="btn btn-secondary">
+                    <i class="fab fa-whatsapp"></i> CONTACTAR POR WHATSAPP
+                </a>
+            </div>
+            
+            <div class="delivery-info">
+                <h3><i class="fas fa-truck"></i> Información de Entrega</h3>
+                <p>Tu pedido llegará en aproximadamente 45 minutos</p>
+                <p>Recibirás una llamada de confirmación antes de la entrega</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Mostrar detalles del último pedido
+        document.addEventListener('DOMContentLoaded', () => {
+            const lastOrder = JSON.parse(localStorage.getItem('lastOrder'));
+            const container = document.getElementById('orderDetails');
+            
+            if (lastOrder && container) {
+                const items = lastOrder.items.map(item => 
+                    `<p>${item.name} x${item.quantity} - Bs. ${(item.price * item.quantity).toFixed(2)}</p>`
+                ).join('');
+                
+                container.innerHTML = `
+                    <h3>Pedido #${lastOrder.id}</h3>
+                    <p><strong>Cliente:</strong> ${lastOrder.customer.name}</p>
+                    <p><strong>Teléfono:</strong> ${lastOrder.customer.phone}</p>
+                    <p><strong>Dirección:</strong> ${lastOrder.customer.address}</p>
+                    <p><strong>Método de pago:</strong> ${lastOrder.payment}</p>
+                    <div class="order-items">${items}</div>
+                    <h4>Total: ${lastOrder.total}</h4>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>

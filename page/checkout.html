@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es-BO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Happy Smile</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/checkout.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <div class="logo-icon">😊</div>
+                    <h1>Happy Smile</h1>
+                </a>
+                <nav>
+                    <a href="../index.html">INICIO</a>
+                    <a href="carrito.html">VOLVER AL CARRITO</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="checkout-section">
+        <div class="container">
+            <h1>FINALIZAR COMPRA</h1>
+            
+            <div class="checkout-container">
+                <form id="checkoutForm" class="checkout-form">
+                    <h3>Información de Entrega</h3>
+                    
+                    <div class="form-group">
+                        <label>Nombre completo *</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Teléfono *</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Dirección de entrega *</label>
+                        <input type="text" id="address" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Notas adicionales</label>
+                        <textarea id="notes" rows="3"></textarea>
+                    </div>
+                    
+                    <h3>Método de Pago</h3>
+                    <div class="payment-options">
+                        <label class="payment-option selected">
+                            <input type="radio" name="payment" value="efectivo" checked>
+                            <i class="fas fa-money-bill-wave"></i>
+                            <span>Efectivo</span>
+                        </label>
+                        
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="transferencia">
+                            <i class="fas fa-university"></i>
+                            <span>Transferencia</span>
+                        </label>
+                        
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="qr">
+                            <i class="fas fa-qrcode"></i>
+                            <span>QR Bolivia</span>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="confirm-btn">
+                        <i class="fas fa-check-circle"></i> CONFIRMAR PEDIDO
+                    </button>
+                </form>
+                
+                <div class="checkout-summary">
+                    <h3>TU PEDIDO</h3>
+                    <div class="summary-items" id="orderItems">
+                        <!-- Items del carrito -->
+                    </div>
+                    
+                    <div class="summary-totals">
+                        <div class="total-row">
+                            <span>Subtotal:</span>
+                            <span id="orderSubtotal">Bs. 0.00</span>
+                        </div>
+                        <div class="total-row">
+                            <span>Envío:</span>
+                            <span id="orderShipping">Bs. 0.00</span>
+                        </div>
+                        <div class="total-row final">
+                            <span>Total a pagar:</span>
+                            <span id="orderTotal">Bs. 0.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../js/checkout.js"></script>
+    <script src="../js/cart.js"></script>
+</body>
+</html>
