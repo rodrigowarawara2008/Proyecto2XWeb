@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito de Compras - 2X Delicias</title>
-    <meta name="description" content="Revisa y gestiona los productos en tu carrito de compras.">
+    <title>Carrito - 2X Delicias</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -21,12 +20,7 @@
                     <li><a href="products/donas.html">Donas</a></li>
                     <li><a href="products/galletas.html">Galletas</a></li>
                     <li><a href="products/bebidas.html">Bebidas</a></li>
-                    <li>
-                        <a href="carrito.html" class="active">
-                            <i class="fas fa-shopping-cart"></i>
-                            <span class="cart-badge" style="display: flex;">2</span>
-                        </a>
-                    </li>
+                    <li><a href="carrito.html" class="active"><i class="fas fa-shopping-cart"></i></a></li>
                 </ul>
                 <div class="menu-btn">
                     <i class="fas fa-bars"></i>
@@ -36,110 +30,59 @@
     </header>
 
     <main class="container productos-page">
-        <h2>Tu Carrito de Compras</h2>
+        <h2>Tu Carrito</h2>
         
-        <div class="carrito-container">
-            <table class="carrito-table">
-                <thead>
-                    <tr>
-                        <th>Producto</th>
-                        <th>Precio</th>
-                        <th>Cantidad</th>
-                        <th>Total</th>
-                        <th>Acción</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <strong>Pastel de Chocolate</strong>
-                            <br>
-                            <small>Delicioso pastel de chocolate artesanal</small>
-                        </td>
-                        <td>$15.99</td>
-                        <td>
-                            <input type="number" value="1" min="1" class="cantidad-input">
-                        </td>
-                        <td>$15.99</td>
-                        <td>
-                            <button class="btn-remove">
-                                <i class="fas fa-trash"></i> Eliminar
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <strong>Donas Glaseadas</strong>
-                            <br>
-                            <small>Pack de 6 donas glaseadas frescas</small>
-                        </td>
-                        <td>$4.99</td>
-                        <td>
-                            <input type="number" value="2" min="1" class="cantidad-input">
-                        </td>
-                        <td>$9.98</td>
-                        <td>
-                            <button class="btn-remove">
-                                <i class="fas fa-trash"></i> Eliminar
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <strong>Chocolate Caliente</strong>
-                            <br>
-                            <small>Chocolate caliente cremoso</small>
-                        </td>
-                        <td>$3.99</td>
-                        <td>
-                            <input type="number" value="1" min="1" class="cantidad-input">
-                        </td>
-                        <td>$3.99</td>
-                        <td>
-                            <button class="btn-remove">
-                                <i class="fas fa-trash"></i> Eliminar
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        <div style="max-width: 800px; margin: 0 auto;">
+            <div style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 30px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+                    <div>
+                        <h3 style="margin: 0;">Pastel de Chocolate</h3>
+                        <p style="margin: 5px 0 0 0; color: #666;">Delicioso pastel artesanal</p>
+                    </div>
+                    <div style="text-align: right;">
+                        <p style="margin: 0; font-weight: bold; color: #e74c3c;">$15.99</p>
+                        <button style="background: #e74c3c; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer; margin-top: 5px;">
+                            Eliminar
+                        </button>
+                    </div>
+                </div>
+                
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+                    <div>
+                        <h3 style="margin: 0;">Donas Glaseadas</h3>
+                        <p style="margin: 5px 0 0 0; color: #666;">Pack de 6 unidades</p>
+                    </div>
+                    <div style="text-align: right;">
+                        <p style="margin: 0; font-weight: bold; color: #e74c3c;">$4.99</p>
+                        <button style="background: #e74c3c; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer; margin-top: 5px;">
+                            Eliminar
+                        </button>
+                    </div>
+                </div>
+                
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 5px; margin-top: 20px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span>Subtotal:</span>
+                        <span>$20.98</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span>Envío:</span>
+                        <span>$3.00</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 1.2rem; padding-top: 10px; border-top: 2px solid #ddd;">
+                        <span>Total:</span>
+                        <span>$23.98</span>
+                    </div>
+                </div>
+            </div>
             
-            <div class="carrito-resumen">
-                <h3>Resumen del Pedido</h3>
-                <div class="resumen-item">
-                    <span>Subtotal:</span>
-                    <span>$29.96</span>
-                </div>
-                <div class="resumen-item">
-                    <span>Envío:</span>
-                    <span>$3.00</span>
-                </div>
-                <div class="resumen-item">
-                    <span>Descuento:</span>
-                    <span>$0.00</span>
-                </div>
-                <div class="resumen-item total">
-                    <span>Total:</span>
-                    <span>$32.96</span>
-                </div>
-                
-                <p style="text-align: center; margin: 20px 0; color: #666;">
-                    <i class="fas fa-truck"></i> Envío en 30-45 minutos
-                </p>
-                
-                <a href="checkout.html" class="btn" style="width: 100%; margin-top: 10px; padding: 15px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <a href="../index.html" class="btn-secondary" style="text-align: center; display: block; padding: 15px;">
+                    <i class="fas fa-arrow-left"></i> Seguir Comprando
+                </a>
+                <a href="checkout.html" class="btn" style="text-align: center; display: block; padding: 15px;">
                     Proceder al Pago <i class="fas fa-arrow-right"></i>
                 </a>
-                
-                <a href="../index.html" class="btn-secondary" style="width: 100%; margin-top: 15px; padding: 15px;">
-                    <i class="fas fa-shopping-bag"></i> Seguir Comprando
-                </a>
-                
-                <div style="margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 5px;">
-                    <p style="margin: 0; color: #666; font-size: 14px;">
-                        <i class="fas fa-shield-alt"></i> Compra 100% segura
-                    </p>
-                </div>
             </div>
         </div>
     </main>
